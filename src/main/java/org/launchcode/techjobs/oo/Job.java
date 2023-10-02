@@ -29,6 +29,35 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
+    // custom toString method
+    @Override
+    public String toString(){
+        String display = "";
+        if(name.equals("")){
+            name = "Data not available";
+        }
+        if(employer.getValue().equals("") || employer.getValue() == null){
+            employer.setValue("Data not available");
+        }
+        if(location.getValue().equals("")|| location.getValue() == null){
+            location.setValue("Data not available");
+        }
+        if(positionType.getValue().equals("")|| positionType.getValue() == null){
+            positionType.setValue("Data not available");
+        }
+        if(coreCompetency.getValue().equals("")|| coreCompetency.getValue() == null){
+            coreCompetency.setValue("Data not available");
+        }
+        display = String.format(System.lineSeparator() +
+                "ID: %s" + System.lineSeparator()+
+                "Name: %s" + System.lineSeparator()+
+                "Employer: %s" + System.lineSeparator()+
+                "Location: %s" + System.lineSeparator()+
+                "Position Type: %s" + System.lineSeparator()+
+                "Core Competency: %s"+  System.lineSeparator(), id, name, employer, location,
+                positionType, coreCompetency);
+        return display;
+    }
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
@@ -94,3 +123,4 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 }
+
